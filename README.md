@@ -5,7 +5,7 @@ Dendogram G6 is a frontend prototype for the visualisation and interaction with 
 ## Requirements
 
 The first step is to install a Node.js, wich includes npm
-In the present study it was used XPTO
+In the present study it was used Node.js `v18.19.1` and npm `v9.2.0`.
 
 ## Next step is to do the Setup installation as following:
 
