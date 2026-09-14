@@ -1,22 +1,22 @@
-import {CreateProjectInputModel} from "./models/projects/createProject/CreateProjectInputModel"
-import {CreateProjectOutputModel} from "./models/projects/createProject/CreateProjectOutputModel"
-import {GetProjectsOutputModel} from "./models/projects/getProjects/GetProjectsOutputModel"
-import {DeleteProjectOutputModel} from "./models/projects/deleteProject/DeleteProjectOutputModel"
-import {DeleteTypingDataOutputModel} from "./models/files/deleteTypingData/DeleteTypingDataOutputModel"
-import {GetProjectOutputModel, Project} from "./models/projects/getProject/GetProjectOutputModel"
-import {DeleteTreeViewOutputModel} from "./models/treeViews/deleteTreeView/DeleteTreeViewOutputModel"
-import {DeleteIsolateDataOutputModel} from "./models/files/deleteIsolateData/DeleteIsolateDataOutputModel"
-import {CreateDatasetInputModel} from "./models/datasets/createDataset/CreateDatasetInputModel"
-import {CreateDatasetOutputModel} from "./models/datasets/createDataset/CreateDatasetOutputModel"
-import {GetDatasetOutputModel} from "./models/datasets/getDataset/GetDatasetOutputModel"
-import {GetDatasetsOutputModel} from "./models/datasets/getDatasets/GetDatasetsOutputModel"
-import {DeleteDatasetOutputModel} from "./models/datasets/deleteDataset/DeleteDatasetOutputModel"
-import {UpdateProjectOutputModel} from "./models/projects/updateProject/UpdateProjectOutputModel";
-import {UpdateProjectInputModel} from "./models/projects/updateProject/UpdateProjectInputModel";
-import {UpdateTreeViewOutputModel} from "./models/treeViews/updateTreeView/UpdateTreeViewOutputModel";
-import {UpdateTreeViewInputModel} from "./models/treeViews/updateTreeView/UpdateTreeViewInputModel";
-import {UpdateDatasetInputModel} from "./models/datasets/updateDataset/UpdateDatasetInputModel";
-import {UpdateDatasetOutputModel} from "./models/datasets/updateDataset/UpdateDatasetOutputModel";
+import { CreateProjectInputModel } from "./models/projects/createProject/CreateProjectInputModel"
+import { CreateProjectOutputModel } from "./models/projects/createProject/CreateProjectOutputModel"
+import { GetProjectsOutputModel } from "./models/projects/getProjects/GetProjectsOutputModel"
+import { DeleteProjectOutputModel } from "./models/projects/deleteProject/DeleteProjectOutputModel"
+import { DeleteTypingDataOutputModel } from "./models/files/deleteTypingData/DeleteTypingDataOutputModel"
+import { GetProjectOutputModel, Project } from "./models/projects/getProject/GetProjectOutputModel"
+import { DeleteTreeViewOutputModel } from "./models/treeViews/deleteTreeView/DeleteTreeViewOutputModel"
+import { DeleteIsolateDataOutputModel } from "./models/files/deleteIsolateData/DeleteIsolateDataOutputModel"
+import { CreateDatasetInputModel } from "./models/datasets/createDataset/CreateDatasetInputModel"
+import { CreateDatasetOutputModel } from "./models/datasets/createDataset/CreateDatasetOutputModel"
+import { GetDatasetOutputModel } from "./models/datasets/getDataset/GetDatasetOutputModel"
+import { GetDatasetsOutputModel } from "./models/datasets/getDatasets/GetDatasetsOutputModel"
+import { DeleteDatasetOutputModel } from "./models/datasets/deleteDataset/DeleteDatasetOutputModel"
+import { UpdateProjectOutputModel } from "./models/projects/updateProject/UpdateProjectOutputModel";
+import { UpdateProjectInputModel } from "./models/projects/updateProject/UpdateProjectInputModel";
+import { UpdateTreeViewOutputModel } from "./models/treeViews/updateTreeView/UpdateTreeViewOutputModel";
+import { UpdateTreeViewInputModel } from "./models/treeViews/updateTreeView/UpdateTreeViewInputModel";
+import { UpdateDatasetInputModel } from "./models/datasets/updateDataset/UpdateDatasetInputModel";
+import { UpdateDatasetOutputModel } from "./models/datasets/updateDataset/UpdateDatasetOutputModel";
 import {
     SetIsolateDataOfDatasetInputModel
 } from "./models/datasets/setIsolateDataOfDataset/SetIsolateDataOfDatasetInputModel";
@@ -26,93 +26,6 @@ import {
 
 export namespace MockAdministrationService {
 
-    export const mockProjects = new Map<string, Project>(
-        [
-            ["project1", {
-                projectId: "project1",
-                name: "Project 1",
-                description: "Project 1 description",
-                owner: "user1",
-                datasets: [
-                    {
-                        datasetId: "dataset1",
-                        name: "Dataset 1",
-                        description: "Dataset 1 description",
-                        typingDataId: "typingData1",
-                        isolateDataId: "isolateData1",
-                        isolateDataKey: "continent",
-                        distanceMatrices: [
-                            {
-                                distanceMatrixId: "distanceMatrix1",
-                                name: "Hamming Distance",
-                                sourceType: "function",
-                                source: {
-                                    function: "hamming"
-                                }
-                            }
-                        ],
-                        trees: [
-                            {
-                                treeId: "tree1",
-                                name: "GoeBurst",
-                                sourceType: "algorithm_distance_matrix",
-                                source: {
-                                    algorithm: "goeBURST",
-                                    distanceMatrixId: "distanceMatrix1",
-                                    parameters: "{ level: 'SLV' }"
-                                }
-                            },
-                            {
-                                treeId: "tree2",
-                                name: "GoeBurst Dynamic",
-                                sourceType: "algorithm_typing_data",
-                                source: {
-                                    algorithm: "goeBURST",
-                                    parameters: "{ level: 'SLV' }"
-                                }
-                            },
-                            {
-                                treeId: "tree3",
-                                name: "Newick",
-                                sourceType: "file",
-                                source: {
-                                    fileType: "newick",
-                                    fileName: "tree2023.tree"
-                                }
-                            }
-                        ],
-                        treeViews: [
-                            {
-                                treeViewId: "treeView1",
-                                name: "Tree View 1",
-                                layout: "force-directed",
-                                source: {
-                                    treeId: "tree1"
-                                }
-                            }
-                        ]
-                    }
-                ],
-                files: {
-                    typingData: [
-                        {
-                            typingDataId: "typingData1",
-                            name: "Typing Data 1",
-                        }
-                    ],
-                    isolateData: [
-                        {
-                            isolateDataId: "isolateData1",
-                            name: "Isolate Data 1",
-                            keys: ["id", "isolate", "aliases", "country", "continent", "region", "town_or_city",
-                                "year", "month", "isolation_date", "received_date", "age_yr", "age_mth", "sex"]
-                        }
-                    ]
-                }
-            }
-            ]
-        ]
-    )
     const DELAY = 1000
 
     /**
@@ -428,7 +341,7 @@ export namespace MockAdministrationService {
             throw new Error('Isolate data not found')
         }
 
-        if(isolateData.keys.indexOf(inputModel.isolateDataKey) === -1) {
+        if (isolateData.keys.indexOf(inputModel.isolateDataKey) === -1) {
             throw new Error('Isolate data key not found')
         }
 
