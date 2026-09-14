@@ -26,6 +26,7 @@ import {
 
 export namespace MockAdministrationService {
 
+    export const mockProjects = new Map<string, Project>();
     const DELAY = 1000
 
     /**
